@@ -28,7 +28,7 @@ class TransitController extends Controller
         $file_name = rand() . '_' . $file->getClientOriginalName();
 
         // move the file to the storage
-        $file->move('public/file_upload', $file_name);
+        $file->move('file_upload', $file_name);
 
         // import data
         Excel::import(new TransitImport, public_path('/file_upload/' . $file_name));

@@ -16,7 +16,7 @@ class DailyBalanceController extends Controller
 
         $date = $request->date;
 
-        $response = $this->getDailyBalance($date);
+        $response = $this->getDailyBalances($date);
 
         if ($response === false) {
             return 'No data to insert';
@@ -25,7 +25,7 @@ class DailyBalanceController extends Controller
         return 'Data inserted successfully';
     }
 
-    public function getDailyBalance($date)
+    public function getDailyBalances_old($date)
     {
         $previous_date = date('Y-m-d', strtotime($date . ' -1 day'));
 
@@ -62,21 +62,18 @@ class DailyBalanceController extends Controller
 
 
     // not use
-    public function getDailyBalances_old()
+    public function getDailyBalances($date) // not use
     {
-        $date = '2024-05-31';
         $previous_date = date('Y-m-d', strtotime($date . ' -1 day'));
-
-
         $projects = ['000H', '001H', '017C', '021C', '022C', '023C'];
         $accounts = Account::all();
 
         $daily_journals = app(DailyJournalController::class)->getDailyMutasi($date);
 
         $data_daily_balances = [];
-        foreach ($projects as $project) {
+        foreach ($accounts as $account) {
             $daily_balances = [];
-            foreach ($accounts as $account) {
+            foreach ($projects as $project) {
                 $previous_balance = DailyBalance::where('date', $previous_date)
                     ->where('project_code', $project)
                     ->where('account_id', $account->id)

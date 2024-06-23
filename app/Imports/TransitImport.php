@@ -16,10 +16,13 @@ class TransitImport implements ToModel, WithHeadingRow
             'tx_num' => $row['tx_num'],
             'doc_num' => $row['doc_num'],
             'doc_type' => $row['doc_type'],
-            'project_code' => $row['project_code'],
+            'project' => $row['project_code'],
+            'department' => $row['department'],
             'account' => $row['account'],
             'debit' => $row['debit'],
             'credit' => $row['credit'],
+            'fc_debit' => $row['fc_debit'],
+            'fc_credit' => $row['fc_credit'],
             'remarks' => $row['remarks'],
         ]);
     }

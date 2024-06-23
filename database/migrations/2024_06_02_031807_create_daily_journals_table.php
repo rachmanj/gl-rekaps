@@ -18,10 +18,13 @@ return new class extends Migration
             $table->string('tx_num')->nullable();
             $table->string('doc_num')->nullable();
             $table->string('doc_type')->nullable();
-            $table->string('project_code')->nullable();
+            $table->string('project')->nullable();
+            $table->string('department')->nullable();
             $table->foreignId('account_id')->nullable();
             $table->decimal('debit', 15, 2)->nullable();
             $table->decimal('credit', 15, 2)->nullable();
+            $table->decimal('fc_debit', 15, 2)->nullable();
+            $table->decimal('fc_credit', 15, 2)->nullable();
             $table->string('remarks')->nullable();
             $table->integer('batch')->nullable();
             $table->timestamps();

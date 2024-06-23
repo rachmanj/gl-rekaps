@@ -54,7 +54,7 @@ class DailyJournalController extends Controller
                 'tx_num' => $journal->tx_num,
                 'doc_num' => $journal->doc_num,
                 'doc_type' => $journal->doc_type,
-                'project_code' => $journal->project_code,
+                'project' => $journal->project,
                 'account_id' => $journal->account_id,
                 'debit' => $journal->debit,
                 'credit' => $journal->credit,

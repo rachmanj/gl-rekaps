@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('date')->nullable();
             $table->decimal('balance', 20, 2)->nullable();
             $table->decimal('mutasi', 20, 2)->nullable();
+            $table->decimal('persen', 5, 2)->nullable();
             $table->timestamps();
         });
     }
